@@ -1,0 +1,1 @@
+export var urlGlobal = "http://localhost:3900/api/";

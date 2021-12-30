@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MomentModule } from "angular2-moment";
+import { AngularFileUploaderModule } from "angular-file-uploader";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,6 +17,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { ArticleNewComponent } from './components/article-new/article-new.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +32,17 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     ArticlesComponent,
     BlogComponent,
     SliderComponent,
-    FormularioComponent
+    FormularioComponent,
+    ArticleNewComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MomentModule,
+    AngularFileUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/models/article';
+
+import { ArticleService } from 'src/app/service/article.service';
+import { urlGlobal } from 'src/app/service/global';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+  providers: [ArticleService]
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  public articles!: Article[];
+
+  constructor(
+    private _articleService: ArticleService
+  ) { }
 
   ngOnInit(): void {
+    this._articleService.getArticles().subscribe(
+      response =>{
+        this.articles = response.articles;
+      },
+      error =>{
+        console.log(error);
+      }
+    )
   }
 
 }

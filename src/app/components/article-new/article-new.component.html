@@ -1,0 +1,37 @@
+<app-slider [name]="'Nuevo articulo'" [size]="'small'"></app-slider>
+<!-- Listado articulos -->
+<div class="center">
+    <section id="content">
+        <h2 class="subheader">Articulo</h2>
+        <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" name="title" id="title" #title="ngModel" [(ngModel)]="article.title" required>
+            </div>
+
+            <div *ngIf="!title.value && title.touched">
+                <p>Título no valido</p>
+            </div>
+
+            <div class="form-group">
+                <label for="content2">Contenido</label>
+                <textarea name="content2" id="content2" cols="30" rows="10" #content2="ngModel" [(ngModel)]="article.content" required></textarea>
+            </div>
+
+            <div *ngIf="!content2.value && content2.touched">
+                <p>Contenido no validos</p>
+            </div>
+
+            <div class="form-group">
+                <label for="content2">Imagen</label>
+                <angular-file-uploader 
+                    [config]="afuConfig"
+                    (ApiResponse)="imageUpload($event)">
+                </angular-file-uploader>
+            </div>
+
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="articleForm.invalid">
+        </form>
+    </section>
+    <app-aside></app-aside>
+</div>

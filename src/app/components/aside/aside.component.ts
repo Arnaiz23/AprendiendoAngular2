@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideComponent implements OnInit {
 
-  constructor() { }
+  public texto!: string;
+
+  constructor(
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  buscar(){
+    this._router.navigate(["/buscar", this.texto]);
   }
 
 }
