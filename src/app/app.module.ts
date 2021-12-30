@@ -19,6 +19,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
 import { SearchComponent } from './components/search/search.component';
+import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SearchComponent } from './components/search/search.component';
     SliderComponent,
     FormularioComponent,
     ArticleNewComponent,
-    SearchComponent
+    SearchComponent,
+    ArticleEditComponent
   ],
   imports: [
     BrowserModule,

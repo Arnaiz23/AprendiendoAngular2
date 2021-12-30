@@ -1,0 +1,25 @@
+<div class="center">
+    <section id="content">
+        <h2 class="subheader">Articulo</h2>
+        <div id="articles">
+            <article class="article-item article-detalle">
+                <div class="image-wrap">
+                    <img src="{{url+'get-image/'+article.image}}" alt="{{article.title}}" *ngIf="article.image">
+                    <img src="/assets/images/default.png" alt="{{article.title}}" *ngIf="!article.image">
+                </div>
+                <div>
+                    <h1 class="subheader">{{article.title}}</h1>
+                    <span class="date">
+                        {{article.date | amLocale: "es" | amTimeAgo}}
+                    </span>
+                    <p>{{article.content}}</p>
+                </div>
+                <div class="buttons">
+                    <a [routerLink]="['/blog/editar', article._id]" class="btn btn-warning">Editar</a>
+                    <a (click)="eliminar(article._id)" class="btn btn-danger">Borrar</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <app-aside></app-aside>
+</div>

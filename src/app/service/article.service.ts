@@ -46,4 +46,8 @@ export class ArticleService {
   delete(id: any):Observable<any>{
     return this._http.delete(this.url+"article/"+id);
   }
+
+  getArticle(id: any):Observable<any>{
+    return this._http.get(this.url+"article/"+id);
+  }
 }
