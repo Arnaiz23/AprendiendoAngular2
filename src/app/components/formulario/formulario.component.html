@@ -1,0 +1,48 @@
+<app-slider [name]="'Formulario'" [size]="'small'"></app-slider>
+<!-- Listado articulos -->
+<div class="center">
+    <section id="content">
+        <h2 class="subheader">Formulario</h2>
+        <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required>
+            </div>
+
+            <div *ngIf="!nombre.value && nombre.touched">
+                <p>Nombre no valido</p>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" [(ngModel)]="user.apellidos" #apellidos="ngModel" required>
+            </div>
+
+            <div *ngIf="!apellidos.value && apellidos.touched">
+                <p>Apellidos no validos</p>
+            </div>
+
+            <div class="form-group">
+                <label for="biografia">Biografia</label>
+                <textarea name="biografia" id="biografia" cols="30" rows="10" [(ngModel)]="user.bio" #bio="ngModel" required></textarea>
+            </div>
+
+            <div *ngIf="!bio.value && bio.touched">
+                <p>Biografia no valido</p>
+            </div>
+            
+            <div class="form-group radiobuttons">
+                <input type="radio" name="genero" id="hombre" value="hombre" [(ngModel)]="user.genero" #genero="ngModel" required>Hombre
+                <input type="radio" name="genero" id="mujer" value="mujer" [(ngModel)]="user.genero" #genero="ngModel">Mujer
+                <input type="radio" name="genero" id="otro" value="otro" [(ngModel)]="user.genero" #genero="ngModel">Otro
+            </div>
+
+            <div *ngIf="!genero.value && genero.touched">
+                <p>Genero no valido</p>
+            </div>
+
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid">
+        </form>
+    </section>
+    <app-aside></app-aside>
+</div>
