@@ -36,4 +36,14 @@ export class ArticleService {
   search(search: any):Observable<any>{
     return this._http.get(this.url+"search/"+search);
   }
+
+  update(id: any, article: any):Observable<any>{
+    let headers = new HttpHeaders().set("Content-type","application/json");
+    let newArticle = JSON.stringify(article);
+    return this._http.put(this.url+"article/"+id, newArticle, {headers: headers});
+  }
+
+  delete(id: any):Observable<any>{
+    return this._http.delete(this.url+"article/"+id);
+  }
 }
